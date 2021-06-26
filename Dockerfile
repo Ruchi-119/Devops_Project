@@ -7,10 +7,10 @@ RUN  apt install python3 -y
 # RUN instruction is for getting shell during image build time
 RUN mkdir /myworld
 # creating a directory to put  my code inside docker image 
-COPY ruchi.py  /myworld/ruchi.py
+COPY cool.py  /myworld/cool.py
 # to copy data from client location to docker image 
 # make sure your code location is same as Dockerfile location
 WORKDIR  /myworld
 # changing location of docker image like cd command in linux
-CMD  ["python3","ruchi.py"]
+CMD  ["python3","cool.py"]
 # to set default process for container

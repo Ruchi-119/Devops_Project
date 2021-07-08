@@ -1,11 +1,12 @@
 # Devops_Project
 
 # Installing hadoop on ubuntu machine
-``
+```
 
 wget https://downloads.apache.org/hadoop/common/stable/hadoop-3.3.1.tar.gz
-``
-```wget https://downloads.apache.org/hadoop/common/stable/hadoop-3.3.1.tar.gz
+```
+```
+wget https://downloads.apache.org/hadoop/common/stable/hadoop-3.3.1.tar.gz
 --2021-07-05 02:45:04--  https://downloads.apache.org/hadoop/common/stable/hadoop-3.3.1.tar.gz
 Resolving downloads.apache.org (downloads.apache.org)... 135.181.214.104, 88.99.95.219, 135.181.209.10, ...
 Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... connected.
@@ -16,7 +17,7 @@ Saving to: ‘hadoop-3.3.1.tar.gz’
 
 ## Transfer hadoop to containers
 
-`
+```
 docker cp hadoop-3.3.1.tar.gz namenode:/
 ubuntu@ip-172-31-16-251:~/docker$ docker cp hadoop-3.3.1.tar.gz datnode1:/
 no such directory
@@ -24,7 +25,7 @@ ubuntu@ip-172-31-16-251:~/docker$ docker cp hadoop-3.3.1.tar.gz datanode1:/
 ubuntu@ip-172-31-16-251:~/docker$ docker cp hadoop-3.3.1.tar.gz datanode2:/
 ubuntu@ip-172-31-16-251:~/docker$ 
 
-`
+```
 ## to install tar
 
 dnf install tar
@@ -42,7 +43,7 @@ cd hadoop3/
 
 vi /root/.bashrc
 
-``
+```
 # User specific aliases and functions
 
 alias rm='rm -i'
@@ -59,7 +60,7 @@ PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 export PATH
 
-``
+```
 ## FOR ALL NODES
 
 vi hadoop-env.sh
@@ -71,7 +72,7 @@ vi hadoop-env.sh
 
 vi core-site.xml
 
-``
+```
 <configuration>
 <property>
 	<name>fs.default.name</name>
@@ -80,12 +81,12 @@ vi core-site.xml
 
 </configuration>
 
-``
+```
 ## For namenode 
 
 vi hdfs-site.xml
 
-``
+```
 configuration>
 <property>
 	<name>dfs.namenode.name.dir</name>
@@ -100,13 +101,13 @@ configuration>
 </property>
 </configuration>
 
-``
+```
 
 ## For datanode1
 
 vi hdfs-site.xml
 
-``
+```
 <configuration>
 
 <property>
@@ -116,12 +117,12 @@ vi hdfs-site.xml
 </property>
 </configuration>
 
-``
+```
 ## For datanode2
 
 vi hdfs-site.xml
 
-``
+```
 <configuration>
 
 <property>
@@ -131,7 +132,7 @@ vi hdfs-site.xml
 </property>
 </configuration>
 
-``
+```
 ## In namenode 
 
 hdfs  namenode  -format

@@ -60,5 +60,96 @@ PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 export PATH
 
 ``
+## FOR ALL NODES
+
+vi hadoop-env.sh
+
+``
+
+
+## FOR ALL NODES
+
+vi core-site.xml
+
+``
+<configuration>
+<property>
+	<name>fs.default.name</name>
+	<value>hdfs://namenode:9000</value>
+</property>
+
+</configuration>
+
+``
+## For namenode 
+
+vi hdfs-site.xml
+
+``
+configuration>
+<property>
+	<name>dfs.namenode.name.dir</name>
+	<value>/mynndata</value>
+	<description>location where namenode will store its metadata </description>
+</property>
+
+<property>
+	<name>dfs.replication</name>
+	<value>3</value>
+	<description> number of copy for each block or chunk </description>
+</property>
+</configuration>
+
+``
+
+## For datanode1
+
+vi hdfs-site.xml
+
+``
+<configuration>
+
+<property>
+	<name>dfs.datanode.data.dir</name>
+	<value>/mydndata1</value>
+        <description>location where datanode will store its data</description>
+</property>
+</configuration>
+
+``
+## For datanode2
+
+vi hdfs-site.xml
+
+``
+<configuration>
+
+<property>
+	<name>dfs.datanode.data.dir</name>
+	<value>/mydndata2</value>
+        <description>location where datanode will store its data</description>
+</property>
+</configuration>
+
+``
+## In namenode 
+
+hdfs  namenode  -format
+
+hdfs  --daemon  start namenode 
+
+jps
+
+## In datnodes
+
+hdfs  --daemon  start datanode 
+
+jps
+
+
+
+
+
+
 
 

@@ -23,5 +23,42 @@ no such directory
 ubuntu@ip-172-31-16-251:~/docker$ docker cp hadoop-3.3.1.tar.gz datanode1:/
 ubuntu@ip-172-31-16-251:~/docker$ docker cp hadoop-3.3.1.tar.gz datanode2:/
 ubuntu@ip-172-31-16-251:~/docker$ 
+
 `
+## to install tar
+
+dnf install tar
+
+# to unzip tar.gz file
+
+tar -xvzf hadoop-3.3.1.tar.gz
+
+mv hadoop-3.3.1/ hadoop3  // to move hadoop3.3.1 to hadoop3
+
+
+### to set hadoop home path
+
+cd hadoop3/
+
+vi /root/.bashrc
+
+``
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el8_4.x86_64
+HADOOP_HOME=/hadoop3
+PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+export PATH
+
+``
+
 

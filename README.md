@@ -28,5 +28,11 @@ drwxr-xr-x   - root supergroup          0 2021-07-08 15:58 /ruchi/data-engg
 [root@namenode /]# 
 ```
 
+## For copy from data.txt to /ruchi/data-engg
+
+```
+[root@namenode /]# hdfs dfs -copyFromLocal /tmp/data.txt /ruchi/data-engg/
+
+```
 
 

@@ -31,8 +31,14 @@ drwxr-xr-x   - root supergroup          0 2021-07-08 15:58 /ruchi/data-engg
 ## For copy from data.txt to /ruchi/data-engg
 
 ```
-[root@namenode /]# hdfs dfs -copyFromLocal /tmp/data.txt /ruchi/data-engg/
-
+namenode:/[root@namenode /]# hdfs dfs -copyFromLocal /tmp/data.txt /hadoop
+[root@namenode /]# hdfs dfs -ls -R /xt /hadoop
+drwxr-xr-x   - root supergroup          0 2021-07-12 12:13 /hadoop
+-rw-r--r--   3 root supergroup  345419776 2021-07-12 12:13 /hadoop/data.txt
+drwxr-xr-x   - root supergroup          0 2021-07-10 08:21 /ruchi
+drwxr-xr-x   - root supergroup          0 2021-07-12 12:11 /ruchi/data-engg
+-rw-r--r--   3 root supergroup    5881081 2021-07-12 12:11 /ruchi/data-engg/mal.csv
+namenode:/[root@namenode /]# 
 ```
 
 

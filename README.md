@@ -41,3 +41,22 @@
 
 yarn -daemon start resourcemanager
 
+## in both datanodes  
+ 
+ cd /hadoop3/etc/hadoop
+ 
+ vi yarn-site.xml
+
+```
+<property>
+<name>yarn.resourcemanager.resource-tracker.address</name>
+<value>namenode:8025</value>
+</property>
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property>
+
+```
+
+

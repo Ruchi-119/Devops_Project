@@ -72,11 +72,60 @@ root@ac2747b126b3:/# jps
 129 Master
 178 Jps
 ```
+## to run this image always
 
+```
+docker  run -itd  --name sparkmaster --hostname sparkM  --network bridge  -p 9898:8080 --restart  always  ruchijain12/spark:v1   bash
+```
+## to start worker
+
+```
+docker exec -it sparkmaster bash
+
+start-worker.sh spark://sparkM:7077
+starting org.apache.spark.deploy.worker.Worker, logging to /opt/spark/logs/spark--org
+.apache.spark.deploy.worker.Worker-1-sparkM.out
+oot@sparkM: /root@sparkM:/# jps
+49 Master
+299 Worker
+350 Jps
+```
 ## to start spark shell and pyspark
 
 ```
-spark-shell
+sprk-shell
 
 pyspark
 ```
+## create a text file  /tmp/data.txt
+## enter pyspark
+
+```
+park context Web UI available at http://sparkM:4040
+Spark context available as 'sc' (master = local[*], app id = local-1627029083298).
+SparkSession available as 'spark'.
+>>> firstrdd=sc.textFile('/tmp/data.txt')
+>>> firstRDD.first()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'firstRDD' is not defined
+>>> firstrdd.first()
+'pache Spark is an open-source unified analytics engine for large-scale data processing. Spark provides an interface for p
+rogramming entire clusters with implicit data parallelism and fault tolerance.'
+>>> firstrdd.take(5)
+['pache Spark is an open-source unified analytics engine for large-scale data processing. Spark provides an interface for 
+programming entire clusters with implicit data parallelism and fault tolerance.', 'Apache Spark is an open-source unified 
+analytics engine for large-scale data processing. Spark provides an interface for programming entire clusters with implici
+t data parallelism and fault tolerance.', 'Apache Spark is an open-source unified analytics engine for large-scale data pr
+ocessing. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance.'
+, 'Apache Spark is an open-source unified analytics engine for large-scale data processing. Spark provides an interface fo
+r programming entire clusters with implicit data parallelism and fault tolerance.', 'Apache Spark is an open-source unifie
+d analytics engine for large-scale data processing. Spark provides an interface for programming entire clusters with impli
+cit data parallelism and fault tolerance.']
+
+```
+
+
+## for python as a pyspark we import a pyspark module
+## creating python file
+
